@@ -7,10 +7,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MARIA_DB_ROOT_PASSWORD: toor
-      MARIA_DB_DATABASE: bddname
-      MARIA_DB_USER: roger
-      MARIA_DB_PASSWORD: regor
+      MARIADB_ROOT_PASSWORD: toor
+      MARIADB_DATABASE: bddname
+      MARIADB_USER: roger
+      MARIADB_PASSWORD: regor
   golf_adminer:
     container_name: golf_adminer
     image: adminer
