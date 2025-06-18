@@ -1,4 +1,4 @@
-name: 02 - Dploy
+name: 02 - Deploy
 
 on:
   push:
@@ -6,29 +6,6 @@ on:
       - main
 
 jobs:
-  Build-Push-DockerGhcr:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Registry Login
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ env.USERNAME }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Back Build Push
-        uses: docker/build-push-action@v4
-        with:
-          context: ./backend
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-back:latest
-
-      - name: Front Build Push
-        uses: docker/build-push-action@v4
-        with:
-          context: ./frontend
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-front:latest
+  Dockerbuild:
+    uses: ./.github/workflows/02-1_DockerBuild.yaml
+    secrets: inherit
