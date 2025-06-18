@@ -21,7 +21,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ env.USERNAME }}
-          password: ${{ secrets.MONOREPO_PAD }}
+          password: ${{ secrets.MONOREPO_PAT }}
 
       - name: Downcase Image Name
         run: echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
