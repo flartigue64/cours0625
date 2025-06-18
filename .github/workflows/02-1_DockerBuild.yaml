@@ -23,12 +23,15 @@ jobs:
           username: ${{ env.USERNAME }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Downcase Image Name
+        run: echo "IMAGE_NAME_LOWER=$(echo ${GITHUB_REPOSITORY,,} >> $GITHUB_ENV
+
       - name: Back Build Push
         uses: docker/build-push-action@v4
         with:
           context: backend
           push: true
-          tags: ${{ env.REGISTRY}}/${{ env.IMAGE_NAME }}-back:latest
+          tags: ${{ env.REGISTRY}}/${{ env.IMAGE_NAME_LOWER }}-back:latest
           # ghcr.io/Floriansp40/golfepade-back
 
       - name: Front Build Push
@@ -36,5 +39,5 @@ jobs:
         with:
           context: frontend
           push: true
-          tags: ${{ env.REGISTRY}}/${{ env.IMAGE_NAME }}-front:latest
+          tags: ${{ env.REGISTRY}}/${{ env.IMAGE_NAME_LOWER }}-front:latest
           # ghcr.io/Floriansp40/golfepade-front
