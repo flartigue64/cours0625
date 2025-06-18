@@ -1,0 +1,16 @@
+name: 02-1 Delivery - Docker GHCR
+
+on:
+  workflow_call
+
+env:
+  REGISTRY: ghcr.io
+  USERNAME: ${{ github.actor }}
+  IMAGE_NAME: ${{ github.repository }} #orga/repo
+
+jobs:
+  DockerBuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
