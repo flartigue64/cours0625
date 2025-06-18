@@ -26,7 +26,7 @@ services:
     container_name: golf_backend_build
     build: ./backend/.
     environment:
-      BDD_HOST: mono_bdd
+      BDD_HOST: golf_bdd
     ports:
       - 12000:12000
     depends_on:
