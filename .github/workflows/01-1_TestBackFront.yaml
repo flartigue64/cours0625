@@ -1,9 +1,7 @@
 name: Frero
 
 on:
-  push:
-    branches:
-      - develop
+  workflows_call
 
 jobs:
   Helloworld:
