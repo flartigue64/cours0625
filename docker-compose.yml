@@ -24,7 +24,7 @@ services:
 
   golf_backend_build:
     container_name: golf_backend_build
-    image: ghcr.io/flartigue64/cours0625-back:lastest
+    image: ghcr.io/flartigue64/cours0625-back:latest
     environment:
       BDD_HOST: golf_bdd
     ports:
@@ -36,6 +36,6 @@ services:
 
   glof_frontend:
     container_name: glof_frontend
-    image: ghcr.io/flartigue64/cours0625-front:lastest
+    image: ghcr.io/flartigue64/cours0625-front:latest
     ports:
       - 80:80
