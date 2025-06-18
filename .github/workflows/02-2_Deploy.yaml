@@ -14,7 +14,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.AZURE_HOST }}
-          username: ${{ secrets.AZURE_USERNAME }} 
+          username: ${{ secrets.AZURE_LOGIN }} 
           port: ${{ secrets.AZURE_PORT }}
           password: ${{ secrets.AZURE_PASSWORD }}
 
@@ -25,7 +25,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.AZURE_HOST }}
-          username: ${{ secrets.AZURE_USERNAME }} 
+          username: ${{ secrets.AZURE_LOGIN }} 
           port: ${{ secrets.AZURE_PORT }}
           password: ${{ secrets.AZURE_PASSWORD }}
 
