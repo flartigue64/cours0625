@@ -1,7 +1,7 @@
-name: Frero
+name: 01-1 - Test Back Front
 
 on:
-  workflows_call
+  workflow_call
 
 jobs:
   Helloworld:

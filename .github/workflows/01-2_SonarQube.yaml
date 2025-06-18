@@ -1,12 +1,12 @@
 name: 01-2 - Integration SonarQube
 
 on:
-  workflows_call
+  workflow_call
 
 jobs:
   QualityBack:
     runs-on: ubuntu-latest
-    defaults: 
+    defaults:
       run:
         working-directory: backend
 
@@ -21,15 +21,15 @@ jobs:
           path: backend/coverage
 
       - name: SonarCloud
-        uses: sonarsource/sonarcloud-github-action@v3.1.0
+        uses: SonarSource/sonarcloud-github-action@v3.1.0
         with:
           projectBaseDir: ./backend
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_EPAD_BACK }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
 
   QualityFront:
     runs-on: ubuntu-latest
-    defaults: 
+    defaults:
       run:
         working-directory: frontend
 
@@ -44,8 +44,8 @@ jobs:
           path: frontend/coverage
 
       - name: SonarCloud
-        uses: sonarsource/sonarcloud-github-action@v3.1.0
+        uses: SonarSource/sonarcloud-github-action@v3.1.0
         with:
           projectBaseDir: ./frontend
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_EPAD_FRONT }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
