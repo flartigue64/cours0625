@@ -7,10 +7,16 @@ on:
 
 jobs:
   Test_Back_Front:
+    if: ${{ github.event_name == 'push' && github.ref_name == 'develop'}}
     uses: ./.github/workflows/01-1_TestBackFront.yaml
 
+  display_Data:
+    runs-on: ubuntu-latest
+    steps:
+      - run: env | sort
+
   Quality_SonarQube:
-    needs: [Test_Back_Front]
+    if: ${{ github.event_name == 'pull_request' && github.ref_name == 'main'}}
     uses: ./.github/workflows/01-2_SonarQube.yaml
     secrets: inherit
 
