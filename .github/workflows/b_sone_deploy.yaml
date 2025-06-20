@@ -3,11 +3,11 @@ name: Sonar_Deploy
 on: 
   pull_request:
     branches:
-      - main
+      - marcel
 
   push:
     branches:
-      - main
+      - marcel
 
 jobs:
   Display_Data:
